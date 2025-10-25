@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import { Mail, Linkedin, Github, Send, MapPin, Phone } from 'lucide-react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const Contact = () => {
+  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -69,9 +73,17 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-fade-in">
+    <section id="contact" className="py-20 bg-gray-900 relative overflow-hidden">
+      <div className="absolute top-1/4 right-10 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
+      <div className="absolute bottom-1/4 left-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-pulse-slow-delayed"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div
+          ref={titleRef}
+          className={`text-center mb-16 transition-all duration-1000 ${
+            titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Touch</span>
           </h2>
@@ -79,8 +91,12 @@ const Contact = () => {
           <p className="mt-4 text-gray-400 text-lg">Let's work together on your next project</p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          <div className="animate-slide-in-left">
+        <div ref={contentRef} className="grid lg:grid-cols-2 gap-12">
+          <div
+            className={`transition-all duration-1000 ${
+              contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
+            }`}
+          >
             <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
 
             <div className="space-y-6 mb-8">
@@ -89,7 +105,7 @@ const Contact = () => {
                 return (
                   <div
                     key={index}
-                    className="flex items-start gap-4 p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-cyan-500 transition-all duration-300"
+                    className="flex items-start gap-4 p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-cyan-500 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-cyan-500/20"
                   >
                     <div className="p-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg">
                       <Icon className="w-5 h-5 text-white" />
@@ -123,7 +139,7 @@ const Contact = () => {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-cyan-500 transition-all duration-300 transform hover:-translate-y-1 ${social.color}`}
+                      className={`p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-cyan-500 transition-all duration-300 transform hover:-translate-y-1 hover:scale-110 hover:shadow-lg hover:shadow-cyan-500/20 ${social.color}`}
                       aria-label={social.label}
                     >
                       <Icon className="w-6 h-6 text-white" />
@@ -134,8 +150,12 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="animate-slide-in-right">
-            <form onSubmit={handleSubmit} className="bg-gray-800 rounded-xl p-8 border border-gray-700">
+          <div
+            className={`transition-all duration-1000 delay-200 ${
+              contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
+            }`}
+          >
+            <form onSubmit={handleSubmit} className="bg-gray-800 rounded-xl p-8 border border-gray-700 hover:border-cyan-500/50 transition-all duration-500">
               <div className="mb-6">
                 <label htmlFor="name" className="block text-white font-medium mb-2">
                   Name
@@ -185,7 +205,7 @@ const Contact = () => {
               </div>
 
               {status && (
-                <div className="mb-4 p-4 bg-green-500/10 border border-green-500 rounded-lg">
+                <div className="mb-4 p-4 bg-green-500/10 border border-green-500 rounded-lg animate-fade-in">
                   <p className="text-green-400 text-center">{status}</p>
                 </div>
               )}
