@@ -18,7 +18,7 @@ const Hero = () => {
               <div className="relative rounded-3xl overflow-hidden border-4 border-gray-700 group-hover:border-cyan-500 transition-all duration-500 shadow-2xl transform group-hover:scale-[1.02]">
                 <div className="aspect-[4/5] bg-gradient-to-br from-cyan-500/20 to-blue-500/20">
                   <img
-                    src="src/components/Aditya.jpeg"
+                    src="src/components/Assets/Aditya.jpeg"
                     alt="Aditya Deshpande"
                     className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
                   />

@@ -41,7 +41,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
         <div className="flex items-center space-x-2">
   <img 
-    src="src/components/Logo1.png" 
+    src="src/components/Assets/Logo1.png" 
     alt="Logo" 
     className="w-12 h-12 object-contain"
   />
