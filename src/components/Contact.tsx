@@ -34,8 +34,8 @@ const Contact = () => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'aditya.deshpande@example.com',
-      link: 'mailto:aditya.deshpande@example.com',
+      value: 'adityadeshpande1999@gmail.com',
+      link: 'mailto:adityadeshpande1999@gmail.com',
     },
     {
       icon: MapPin,
@@ -46,7 +46,7 @@ const Contact = () => {
     {
       icon: Phone,
       label: 'Available',
-      value: 'Open to opportunities',
+      value: '7337732018',
       link: null,
     },
   ];

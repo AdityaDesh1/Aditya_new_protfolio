@@ -15,11 +15,11 @@ const Experience = () => {
   ];
 
   const achievements = [
-    {
-      title: 'Salesforce Trailhead',
-      description: 'Completed multiple badges in Salesforce development',
-      icon: Award,
-    },
+    // {
+    //   title: 'Salesforce Trailhead',
+    //   description: 'Completed multiple badges in Salesforce development',
+    //   icon: Award,
+    // },
     {
       title: 'React Certification',
       description: 'Advanced React.js course completion',

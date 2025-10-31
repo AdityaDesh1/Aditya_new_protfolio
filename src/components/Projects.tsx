@@ -11,7 +11,7 @@ const Projects = () => {
       description: 'Comprehensive school management system with student, teacher, and admin portals. Features attendance tracking, grade management, and real-time notifications.',
       image: 'https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg?auto=compress&cs=tinysrgb&w=800',
       tech: ['React', 'Node.js', 'MySQL', 'Express'],
-      liveUrl: '#',
+      // liveUrl: '#',
       githubUrl: '#',
       gradient: 'from-blue-500 to-cyan-500',
     },
@@ -20,7 +20,7 @@ const Projects = () => {
       description: 'Employee management platform similar to GreytHR with leave management, payroll tracking, attendance system, and performance analytics.',
       image: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800',
       tech: ['React', 'Express.js', 'MySQL', 'Chart.js'],
-      liveUrl: '#',
+      // liveUrl: '#',
       githubUrl: '#',
       gradient: 'from-green-500 to-emerald-500',
     },
@@ -29,7 +29,7 @@ const Projects = () => {
       description: 'Full-featured event booking system with user authentication, event creation, ticket management, payment integration, and admin dashboard.',
       image: 'https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?auto=compress&cs=tinysrgb&w=800',
       tech: ['React', 'Node.js', 'MySQL', 'Bootstrap'],
-      liveUrl: '#',
+      // liveUrl: '#',
       githubUrl: '#',
       gradient: 'from-purple-500 to-pink-500',
     },
@@ -38,7 +38,7 @@ const Projects = () => {
       description: 'Modern, responsive school website with information pages, gallery, admission forms, and contact system. Built with clean UI and smooth animations.',
       image: 'https://images.pexels.com/photos/159844/cellular-education-classroom-159844.jpeg?auto=compress&cs=tinysrgb&w=800',
       tech: ['HTML', 'CSS', 'JavaScript', 'Bootstrap'],
-      liveUrl: '#',
+      // liveUrl: '#',
       githubUrl: '#',
       gradient: 'from-orange-500 to-red-500',
     },
@@ -105,20 +105,20 @@ const Projects = () => {
                 </div>
 
                 <div className="flex gap-4">
-                  <a
+                  {/* <a
                     href={project.liveUrl}
                     className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg font-semibold hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40"
                   >
                     <ExternalLink className="w-4 h-4" />
                     Live Demo
-                  </a>
-                  <a
+                  </a> */}
+                  {/* <a
                     href={project.githubUrl}
                     className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg font-semibold border border-gray-700 hover:border-cyan-500 hover:bg-gray-700 transition-all duration-300 transform hover:scale-105"
                   >
                     <Github className="w-4 h-4" />
                     GitHub
-                  </a>
+                  </a> */}
                 </div>
               </div>
             </div>

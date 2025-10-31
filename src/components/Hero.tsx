@@ -18,7 +18,7 @@ const Hero = () => {
               <div className="relative rounded-3xl overflow-hidden border-4 border-gray-700 group-hover:border-cyan-500 transition-all duration-500 shadow-2xl transform group-hover:scale-[1.02]">
                 <div className="aspect-[4/5] bg-gradient-to-br from-cyan-500/20 to-blue-500/20">
                   <img
-                    src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800"
+                    src="src/components/Aditya.jpeg"
                     alt="Aditya Deshpande"
                     className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
                   />
@@ -43,7 +43,7 @@ const Hero = () => {
                       <Linkedin className="w-5 h-5 text-white" />
                     </a>
                     <a
-                      href="mailto:aditya.deshpande@example.com"
+                      href="mailto:adityadeshpande1999@gmail.com"
                       className="p-3 bg-gray-800/80 backdrop-blur-sm rounded-lg hover:bg-red-500 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1"
                     >
                       <Mail className="w-5 h-5 text-white" />
