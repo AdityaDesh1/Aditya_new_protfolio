@@ -1,4 +1,5 @@
 import { ArrowDown, Download, Eye, Github, Linkedin, Mail } from 'lucide-react';
+import AdityaImg from './Assets/Aditya.jpeg';
 
 const Hero = () => {
   return (
@@ -16,13 +17,13 @@ const Hero = () => {
               <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition duration-1000 animate-gradient-rotate"></div>
 
               <div className="relative rounded-3xl overflow-hidden border-4 border-gray-700 group-hover:border-cyan-500 transition-all duration-500 shadow-2xl transform group-hover:scale-[1.02]">
-                <div className="aspect-[4/5] bg-gradient-to-br from-cyan-500/20 to-blue-500/20">
-                  <img
-                    src="src/components/Assets/Aditya.jpeg"
-                    alt="Aditya Deshpande"
-                    className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
-                  />
-                </div>
+              <div className="aspect-[4/5] bg-gradient-to-br from-cyan-500/20 to-blue-500/20">
+      <img
+        src={AdityaImg}
+        alt="Aditya Deshpande"
+        className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
+      />
+    </div>
 
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900 via-gray-900/80 to-transparent p-6">
                   <div className="flex gap-4 justify-center">
