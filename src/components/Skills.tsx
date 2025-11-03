@@ -22,13 +22,13 @@ const Skills = () => {
       title: 'Database',
       icon: Database,
       color: 'from-orange-500 to-red-500',
-      skills: ['MySQL', 'Database Design'],
+      skills: ['MySQL', 'MongoDB'],
     },
     {
       title: 'Tools',
       icon: Wrench,
       color: 'from-purple-500 to-pink-500',
-      skills: ['Git', 'VS Code', 'Postman', 'Figma', 'GitHub'],
+      skills: ['Git', 'VS Code', 'Postman','GitHub'],
     },
   ];
 
@@ -93,7 +93,7 @@ const Skills = () => {
               Always learning and exploring new technologies
             </p>
             <div className="flex flex-wrap justify-center gap-3">
-              {['TypeScript', 'Next.js', 'MongoDB', 'Docker', 'AWS'].map((tech, index) => (
+              {['TypeScript', 'MongoDB',].map((tech, index) => (
                 <span
                   key={index}
                   className="px-4 py-2 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 text-cyan-400 rounded-lg text-sm border border-cyan-500/30 font-medium hover:scale-110 hover:border-cyan-500 transition-all duration-300"
