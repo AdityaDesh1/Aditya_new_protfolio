@@ -21,15 +21,16 @@ const Experience = () => {
     //   icon: Award,
     // },
     {
-      title: 'React Certification',
-      description: 'Advanced React.js course completion',
+      title: 'React.js Developer Certificate',
+      description: 'Earned from LearnTube.ai (July 2025).',
       icon: Award,
     },
     {
-      title: 'Node.js Mastery',
-      description: 'Backend development with Node.js and Express',
+      title: 'Java Full Stack Developer',
+      description: 'Completed Full Stack Java Developer course at JSpiders Training & Development Center — covered Core Java, SQL, HTML, CSS, and JavaScript.',
       icon: Award,
     },
+    
   ];
 
   return (
@@ -118,7 +119,7 @@ const Experience = () => {
             Certifications & <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Achievements</span>
           </h3>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             {achievements.map((achievement, index) => {
               const Icon = achievement.icon;
               return (
