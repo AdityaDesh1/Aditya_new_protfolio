@@ -1,5 +1,11 @@
 import { ExternalLink, Github } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import School from '../components/Assets/School.png';
+import HrDash from '../components/Assets/HrDash.png';
+import KeyVault from '../components/Assets/KeyVault.png';
+import SchoolWebsite from '../components/Assets/SchoolWebsite.png';
+
+
 
 const Projects = () => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
@@ -9,7 +15,7 @@ const Projects = () => {
     {
       title: 'School Dashboard',
       description: 'Comprehensive school management system with student, teacher, and admin portals. Features attendance tracking, grade management, and real-time notifications.',
-      image: 'src/components/Assets/School.png',
+      image: School,
       tech: ['React', 'Node.js', 'MySQL', 'Express'],
       // liveUrl: '#',
       githubUrl: '#',
@@ -18,7 +24,7 @@ const Projects = () => {
     {
       title: 'HR & Employee Dashboard',
       description: 'Employee management platform similar to GreytHR with leave management, payroll tracking, attendance system, and performance analytics.',
-      image: 'src/components/Assets/HR Dash.png',
+      image: HrDash,
       tech: ['React', 'Express.js', 'MySQL', 'Chart.js'],
       // liveUrl: '#',
       githubUrl: '#',
@@ -27,7 +33,7 @@ const Projects = () => {
     {
       title: 'KeyVault',
       description: 'Securely upload and share files with unique keys. Your clients can download files without logging in if they have the unique key. Manage your files effortlessly and share them securely.',
-      image: 'src/components/Assets/KeyVault.png',
+      image: KeyVault,
       tech: ['React', 'Node.js', 'MySQL', 'Bootstrap'],
       // liveUrl: '#',
       githubUrl: '#',
@@ -36,7 +42,7 @@ const Projects = () => {
     {
       title: 'School Website',
       description: 'Modern, responsive school website with information pages, gallery, admission forms, and contact system. Built with clean UI and smooth animations.',
-      image: 'src/components/Assets/SchoolWebsite.png',
+      image: SchoolWebsite,
       tech: ['HTML', 'CSS', 'JavaScript', 'Bootstrap'],
       // liveUrl: '#',
       githubUrl: '#',
