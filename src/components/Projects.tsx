@@ -9,7 +9,7 @@ const Projects = () => {
     {
       title: 'School Dashboard',
       description: 'Comprehensive school management system with student, teacher, and admin portals. Features attendance tracking, grade management, and real-time notifications.',
-      image: 'https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: 'src/components/Assets/School.png',
       tech: ['React', 'Node.js', 'MySQL', 'Express'],
       // liveUrl: '#',
       githubUrl: '#',
@@ -18,16 +18,16 @@ const Projects = () => {
     {
       title: 'HR & Employee Dashboard',
       description: 'Employee management platform similar to GreytHR with leave management, payroll tracking, attendance system, and performance analytics.',
-      image: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: 'src/components/Assets/HR Dash.png',
       tech: ['React', 'Express.js', 'MySQL', 'Chart.js'],
       // liveUrl: '#',
       githubUrl: '#',
       gradient: 'from-green-500 to-emerald-500',
     },
     {
-      title: 'Event Management Platform',
-      description: 'Full-featured event booking system with user authentication, event creation, ticket management, payment integration, and admin dashboard.',
-      image: 'https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?auto=compress&cs=tinysrgb&w=800',
+      title: 'KeyVault',
+      description: 'Securely upload and share files with unique keys. Your clients can download files without logging in if they have the unique key. Manage your files effortlessly and share them securely.',
+      image: 'src/components/Assets/KeyVault.png',
       tech: ['React', 'Node.js', 'MySQL', 'Bootstrap'],
       // liveUrl: '#',
       githubUrl: '#',
@@ -36,7 +36,7 @@ const Projects = () => {
     {
       title: 'School Website',
       description: 'Modern, responsive school website with information pages, gallery, admission forms, and contact system. Built with clean UI and smooth animations.',
-      image: 'https://images.pexels.com/photos/159844/cellular-education-classroom-159844.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: 'src/components/Assets/SchoolWebsite.png',
       tech: ['HTML', 'CSS', 'JavaScript', 'Bootstrap'],
       // liveUrl: '#',
       githubUrl: '#',
