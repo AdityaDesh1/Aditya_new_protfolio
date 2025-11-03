@@ -22,7 +22,7 @@ const About = () => {
     {
       icon: Briefcase,
       label: 'Current Role',
-      value: 'Web Developer Intern',
+      value: 'Program Co-ordinator - Technical',
       color: 'from-green-500 to-emerald-500',
     },
     {
@@ -62,10 +62,10 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
               <div className="relative bg-gray-800 rounded-2xl p-8 border border-gray-700 shadow-xl hover:border-cyan-500/50 transition-all duration-500">
                 <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                  I'm a passionate <span className="text-cyan-400 font-semibold">Web Developer</span> with an MCA from Visvesvaraya Technological University, Belagavi. I enjoy building clean, modern interfaces using React, JavaScript, and Node.js.
+                  I'm a passionate <span className="text-cyan-400 font-semibold">Web Developer</span> who enjoys crafting clean, modern, and responsive interfaces using React, JavaScript, and Node.js. I focus on delivering seamless user experiences through interactive design, optimized performance, and attention to detail.
                 </p>
                 <p className="text-gray-300 text-lg leading-relaxed">
-                  My focus is on creating seamless user experiences through responsive design, interactive components, and performance optimization. I'm always eager to learn new technologies and tackle challenging problems.
+                Constantly driven by curiosity, I love learning new technologies and taking on challenges that help me grow as a developer and create meaningful digital solutions.
                 </p>
               </div>
             </div>
