@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Code2 } from 'lucide-react';
-import Logo1 from './Assets/Logo1.png';
+import { Menu, X } from 'lucide-react';
+import Logo3 from './Assets/Logo3.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,22 +34,26 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-gray-900/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? 'bg-gray-900/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
+      }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-        <div className="flex items-center space-x-2">
-      <img
-        src={Logo1}
-        alt="Logo"
-        className="w-12 h-12 object-contain"
-      />
-      <span className="text-xl font-bold text-white">Aditya</span>
-    </div>
+        {/* Increased navbar height to accommodate larger logo */}
+        <div className="flex items-center justify-between h-20">
+          {/* Logo container with flex-shrink-0 to prevent shrinking */}
+          <div className="flex items-center space-x-2 flex-shrink-0">
+            {/* Increased logo size from w-14 h-14 to w-16 h-16 for better visibility */}
+            <img
+              src={Logo3}
+              alt="Logo"
+              className="w-16 h-16 object-contain"
+            />
+            {/* <span className="text-xl font-bold text-white">Aditya Deshpande</span> */}
+          </div>
 
-
-          <div className="hidden md:block">
+          {/* Navigation links - added justify-end to keep them on the right */}
+          <div className="hidden md:flex md:flex-1 md:justify-end">
             <div className="flex items-center space-x-8">
               {navLinks.map((link) => (
                 <a
