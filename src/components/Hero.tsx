@@ -77,7 +77,7 @@ const Hero = () => {
               </div>
 
               <p className="text-lg md:text-xl text-gray-400 leading-relaxed max-w-xl animate-slide-in-right" style={{ animationDelay: '0.3s' }}>
-                I build responsive, modern, and user-friendly web applications. Passionate about creating seamless digital experiences that combine beautiful design with powerful functionality.
+              I design and develop responsive, modern, and user-friendly web applications with a focus on performance, accessibility, and scalability. I’m passionate about building seamless digital experiences that blend elegant design with robust functionality to deliver real value to users.
               </p>
 
               <div className="flex items-center gap-3 text-gray-400 animate-slide-in-right" style={{ animationDelay: '0.4s' }}>
