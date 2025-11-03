@@ -6,10 +6,12 @@ import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import SplashCursor from './components/Animations/SplashCursor'
 
 function App() {
   return (
     <div className="min-h-screen bg-gray-900">
+      <SplashCursor/>
       <Navbar />
       <Hero />
       <About />

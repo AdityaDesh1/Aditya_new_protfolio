@@ -121,7 +121,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 animate-bounce">
           <a
             href="#about"
             onClick={(e) => {
