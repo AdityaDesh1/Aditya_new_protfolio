@@ -16,7 +16,7 @@ const Skills = () => {
       title: 'Backend',
       icon: Server,
       color: 'from-green-500 to-emerald-500',
-      skills: ['Node.js', 'Express.js', 'REST APIs'],
+      skills: ['Node.js', 'Express.js'],
     },
     {
       title: 'Database',
@@ -90,7 +90,8 @@ const Skills = () => {
         }`}>
           <div className="inline-block bg-gray-900 rounded-xl p-8 border border-gray-700 hover:border-cyan-500/50 transition-all duration-500">
             <p className="text-gray-400 text-lg mb-4">
-              Always learning and exploring new technologies
+              {/* Always learning and exploring new technologies */}
+              Area of Intrest to learn
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               {['TypeScript', 'MongoDB',].map((tech, index) => (
