@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Mail, Linkedin, Github, Send, MapPin, Phone } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
@@ -14,14 +15,33 @@ const Contact = () => {
 
   const [status, setStatus] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus('Message sent successfully!');
-    setTimeout(() => {
-      setStatus('');
-      setFormData({ name: '', email: '', message: '' });
-    }, 3000);
-  };
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setStatus('Message sent successfully!');
+  //   setTimeout(() => {
+  //     setStatus('');
+  //     setFormData({ name: '', email: '', message: '' });
+  //   }, 3000);
+  // };
+
+
+const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
+
+  emailjs.send(
+    'service_6j66p9r',       // 🔹 Your EmailJS Service ID
+    'template_4xnpu6u',      // 🔹 Your EmailJS Template ID
+    formData,
+    '4PgCMVIyMpCsIaH83'          // 🔹 Your EmailJS Public Key
+  )
+  .then(() => {
+    setStatus('✅ Message sent successfully!');
+    setFormData({ name: '', email: '', message: '' });
+  })
+  .catch(() => {
+    setStatus('❌ Failed to send message. Please try again.');
+  });
+};
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
