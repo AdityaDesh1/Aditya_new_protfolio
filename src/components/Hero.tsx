@@ -1,5 +1,7 @@
 import { ArrowDown, Download, Eye, Github, Linkedin, Mail } from 'lucide-react';
 import AdityaImg from './Assets/Aditya.jpeg';
+import TrueFocus from './Animations/TrueFocus';
+
 
 const Hero = () => {
   return (
@@ -71,13 +73,18 @@ const Hero = () => {
 
               <div className="flex items-center gap-3 animate-slide-in-right" style={{ animationDelay: '0.2s' }}>
                 <div className="h-1 w-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"></div>
-                <h2 className="text-2xl md:text-3xl font-semibold text-gray-300">
-                  Web Developer
-                </h2>
+                <TrueFocus 
+                  sentence="Web Developer"
+                  manualMode={false}
+                  blurAmount={5}
+                  borderColor="cyan"
+                  animationDuration={2}
+                  pauseBetweenAnimations={1}
+                />
               </div>
 
               <p className="text-lg md:text-xl text-gray-400 leading-relaxed max-w-xl animate-slide-in-right" style={{ animationDelay: '0.3s' }}>
-              I design and develop responsive, modern, and user-friendly web applications with a focus on performance, accessibility, and scalability. I’m passionate about building seamless digital experiences that blend elegant design with robust functionality to deliver real value to users.
+                I design and develop responsive, modern, and user-friendly web applications with a focus on performance, accessibility, and scalability. I’m passionate about building seamless digital experiences that blend elegant design with robust functionality to deliver real value to users.
               </p>
 
               <div className="flex items-center gap-3 text-gray-400 animate-slide-in-right" style={{ animationDelay: '0.4s' }}>
@@ -110,6 +117,8 @@ const Hero = () => {
                   Download Resume
                 </a>
               </div>
+
+              
 
               <div className="flex flex-wrap gap-3 pt-6 animate-slide-in-right" style={{ animationDelay: '0.6s' }}>
                 <span className="px-4 py-2 bg-gray-800/50 backdrop-blur-sm text-cyan-400 rounded-lg text-sm border border-gray-700/50">React</span>

@@ -14,12 +14,15 @@ const Experience = () => {
     'Collaborated with team members using Git and GitHub',
   ];
 
+  const secondResponsibilities = [
+    'Worked on the development of web applicaCons using React.js, HTML, CSS and JavaScript.',
+    'Created and managed content through STRAPI CMS, integrating seamlessly with frontend component.',
+    'Contributed to project co-ordination by handling documentation, feature tracking, and development updates.',
+    'Collaborated with content and design teams to ensure consistent layout, colour schemes and component behaviour across the plaform.',
+    'Collaborated with cross-functional teams following agile practices including sprint planning, daily stand-up’s, and code reviews.',
+  ];
+
   const achievements = [
-    // {
-    //   title: 'Salesforce Trailhead',
-    //   description: 'Completed multiple badges in Salesforce development',
-    //   icon: Award,
-    // },
     {
       title: 'React.js Developer Certificate',
       description: 'Earned from LearnTube.ai (July 2025).',
@@ -30,7 +33,6 @@ const Experience = () => {
       description: 'Completed Full Stack Java Developer course at JSpiders Training & Development Center — covered Core Java, SQL, HTML, CSS, and JavaScript.',
       icon: Award,
     },
-    
   ];
 
   return (
@@ -39,6 +41,7 @@ const Experience = () => {
       <div className="absolute bottom-10 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-float-delayed"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* ---------- Section Title ---------- */}
         <div
           ref={titleRef}
           className={`text-center mb-16 transition-all duration-1000 ${
@@ -51,7 +54,9 @@ const Experience = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto rounded-full"></div>
         </div>
 
+        {/* ---------- Experience Cards ---------- */}
         <div ref={cardsRef} className="grid lg:grid-cols-2 gap-8 mb-16">
+          {/* --------- First Company --------- */}
           <div
             className={`bg-gray-900 rounded-xl p-8 border border-gray-700 hover:border-cyan-500 transition-all duration-500 h-full transform hover:-translate-y-2 hover:shadow-xl hover:shadow-cyan-500/20 ${
               cardsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
@@ -66,7 +71,7 @@ const Experience = () => {
                 <p className="text-cyan-400 font-semibold mb-1">Magnum Technologies Services</p>
                 <div className="flex items-center gap-2 text-gray-400">
                   <Calendar className="w-4 h-4" />
-                  <span>February 2025 – Present</span>
+                  <span>December 2024 – May 2025</span>
                 </div>
               </div>
             </div>
@@ -81,6 +86,38 @@ const Experience = () => {
             </div>
           </div>
 
+          {/* --------- Second Company --------- */}
+          <div
+            className={`bg-gray-900 rounded-xl p-8 border border-gray-700 hover:border-green-500 transition-all duration-500 h-full transform hover:-translate-y-2 hover:shadow-xl hover:shadow-green-500/20 ${
+              cardsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
+            }`}
+            style={{ transitionDelay: '200ms' }}
+          >
+            <div className="flex items-start gap-4 mb-6">
+              <div className="p-3 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                <Briefcase className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-white mb-2">Program Co-ordinator - Technical</h3>
+                <p className="text-green-400 font-semibold mb-1">MindMatrix.ed</p>
+                <div className="flex items-center gap-2 text-gray-400">
+                  <Calendar className="w-4 h-4" />
+                  <span>July 2025 – Present</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              {secondResponsibilities.map((item, index) => (
+                <div key={index} className="flex items-start gap-3 group">
+                  <CheckCircle2 className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                  <p className="text-gray-300 leading-relaxed">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* --------- Commented Education Section ---------
           <div
             className={`bg-gray-900 rounded-xl p-8 border border-gray-700 hover:border-cyan-500 transition-all duration-500 h-full transform hover:-translate-y-2 hover:shadow-xl hover:shadow-cyan-500/20 ${
               cardsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
@@ -108,8 +145,10 @@ const Experience = () => {
               </p>
             </div>
           </div>
+          */}
         </div>
 
+        {/* ---------- Achievements Section ---------- */}
         <div ref={achievementsRef}>
           <h3
             className={`text-3xl font-bold text-white mb-8 text-center transition-all duration-1000 ${
