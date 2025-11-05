@@ -54,8 +54,8 @@ const handleSubmit = (e: React.FormEvent) => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'adityadeshpande1999@gmail.com',
-      link: 'mailto:adityadeshpande1999@gmail.com',
+      value: 'adityadesh.webdev@gmail.com',
+      link: 'mailto:adityadesh.webdev@gmail.com',
     },
     {
       icon: MapPin,
@@ -87,7 +87,7 @@ const handleSubmit = (e: React.FormEvent) => {
     {
       icon: Mail,
       label: 'Email',
-      url: 'mailto:aditya.deshpande@example.com',
+      url: 'mailto:adityadesh.webdev@gmail.com',
       color: 'hover:bg-red-600',
     },
   ];
