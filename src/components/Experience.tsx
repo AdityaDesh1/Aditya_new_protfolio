@@ -7,15 +7,15 @@ const Experience = () => {
   const { ref: achievementsRef, isVisible: achievementsVisible } = useScrollAnimation();
 
   const responsibilities = [
-    'Built a responsive School Dashboard using React & Node.js',
-    'Developed HR Dashboard similar to GreytHR',
-    'Created reusable UI components for better maintainability',
-    'Implemented REST APIs and database integration',
-    'Collaborated with team members using Git and GitHub',
+    'Developed front-end school management and HR dashboards using React.js.',
+    'Built reusable and maintainable React components to improve scalability.',
+    'Implemented responsive layouts optimized for mobile and tablet devices.',
+    'Enhanced web performance by minimizing CSS/JS and compressing assets.',
+    ' Improved UI consistency, accessibility, and responsiveness across the School Website.',
   ];
 
   const secondResponsibilities = [
-    'Worked on the development of web applicaCons using React.js, HTML, CSS and JavaScript.',
+    'Worked on the development of web applications using React.js, HTML, CSS and JavaScript.',
     'Created and managed content through STRAPI CMS, integrating seamlessly with frontend component.',
     'Contributed to project co-ordination by handling documentation, feature tracking, and development updates.',
     'Collaborated with content and design teams to ensure consistent layout, colour schemes and component behaviour across the plaform.',

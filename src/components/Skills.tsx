@@ -16,13 +16,13 @@ const Skills = () => {
       title: 'Backend',
       icon: Server,
       color: 'from-green-500 to-emerald-500',
-      skills: ['Node.js', 'Express.js'],
+      skills: ['Node.js', 'Express.js', 'Core-Java'],
     },
     {
       title: 'Database',
       icon: Database,
       color: 'from-orange-500 to-red-500',
-      skills: ['MySQL', 'MongoDB'],
+      skills: ['MySQL'],
     },
     {
       title: 'Tools',
