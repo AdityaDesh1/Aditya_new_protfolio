@@ -1,7 +1,7 @@
 import { ArrowDown, Download, Eye, Github, Linkedin, Mail } from 'lucide-react';
 import AdityaImg from './Assets/Aditya.jpeg';
 import TrueFocus from './Animations/TrueFocus';
-
+import TextType from './Animations/TextType';
 
 const Hero = () => {
   return (
@@ -71,7 +71,7 @@ const Hero = () => {
                 </span>
               </h1>
 
-              <div className="flex items-center gap-3 animate-slide-in-right" style={{ animationDelay: '0.2s' }}>
+              {/* <div className="flex items-center gap-3 animate-slide-in-right" style={{ animationDelay: '0.2s' }} >
                 <div className="h-1 w-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"></div>
                 <TrueFocus 
                   sentence="Web Developer"
@@ -81,6 +81,35 @@ const Hero = () => {
                   animationDuration={2}
                   pauseBetweenAnimations={1}
                 />
+              </div> */}
+              <div
+                className="flex items-center gap-3 animate-slide-in-right"
+                style={{ animationDelay: '0.2s' }}
+              >
+                <div className="h-1 w-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"></div>
+
+                {/* Animated text for large screens */}
+                <div className="hidden lg:block">
+                  <TrueFocus
+                    sentence="Web Developer"
+                    manualMode={false}
+                    blurAmount={5}
+                    borderColor="cyan"
+                    animationDuration={2}
+                    pauseBetweenAnimations={1}
+                  />
+                </div>
+
+                {/* Static text for small and medium screens */}
+                <div className="block lg:hidden text-transparent bg-clip-text bg-white font-semibold text-lg">
+                  <TextType
+                    text={["Web Developer"]}
+                    typingSpeed={75}
+                    pauseDuration={15}
+                    showCursor={true}
+                    cursorCharacter="|"
+                  />
+                </div>
               </div>
 
               <p className="text-lg md:text-xl text-gray-400 leading-relaxed max-w-xl animate-slide-in-right" style={{ animationDelay: '0.3s' }}>
@@ -118,7 +147,7 @@ const Hero = () => {
                 </a>
               </div>
 
-              
+
 
               <div className="flex flex-wrap gap-3 pt-6 animate-slide-in-right" style={{ animationDelay: '0.6s' }}>
                 <span className="px-4 py-2 bg-gray-800/50 backdrop-blur-sm text-cyan-400 rounded-lg text-sm border border-gray-700/50">React</span>
