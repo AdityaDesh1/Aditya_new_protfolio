@@ -30,7 +30,7 @@ const Hero = () => {
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900 via-gray-900/80 to-transparent p-6">
                   <div className="flex gap-4 justify-center">
                     <a
-                      href="https://github.com"
+                      href="https://github.com/AdityaDesh1?tab=repositories"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-3 bg-gray-800/80 backdrop-blur-sm rounded-lg hover:bg-cyan-500 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1"
@@ -38,7 +38,7 @@ const Hero = () => {
                       <Github className="w-5 h-5 text-white" />
                     </a>
                     <a
-                      href="https://linkedin.com"
+                      href="https://www.linkedin.com/in/aditya-deshpande-5921311b9/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-3 bg-gray-800/80 backdrop-blur-sm rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1"
