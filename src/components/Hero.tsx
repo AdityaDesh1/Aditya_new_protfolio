@@ -101,7 +101,7 @@ const Hero = () => {
                 </div>
 
                 {/* Static text for small and medium screens */}
-                <div className="block lg:hidden text-transparent bg-clip-text bg-white font-semibold text-lg">
+                <div className="block lg:hidden text-transparent bg-clip-text bg-white font-semibold text-2xl">
                   <TextType
                     text={["Web Developer"]}
                     typingSpeed={75}
