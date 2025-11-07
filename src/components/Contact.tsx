@@ -75,13 +75,13 @@ const handleSubmit = (e: React.FormEvent) => {
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      url: 'https://linkedin.com',
+      url: 'https://www.linkedin.com/in/aditya-deshpande-5921311b9/',
       color: 'hover:bg-blue-600',
     },
     {
       icon: Github,
       label: 'GitHub',
-      url: 'https://github.com',
+      url: 'https://github.com/AdityaDesh1?tab=repositories',
       color: 'hover:bg-gray-700',
     },
     {
