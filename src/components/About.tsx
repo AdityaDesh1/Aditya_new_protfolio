@@ -1,6 +1,7 @@
 import { MapPin, GraduationCap, Briefcase, Rocket } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
+
 const About = () => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
   const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation();
@@ -22,7 +23,7 @@ const About = () => {
     {
       icon: Briefcase,
       label: 'Current Role',
-      value: 'Program Co-ordinator - Technical',
+      value: 'Technical Program Co-ordinator',
       color: 'from-green-500 to-emerald-500',
     },
     {
@@ -34,6 +35,7 @@ const About = () => {
   ];
 
   return (
+    <>
     <section id="about" className="py-20 bg-gray-900 relative overflow-hidden">
       <div className="absolute top-20 right-10 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl animate-float"></div>
       <div className="absolute bottom-20 left-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-float-delayed"></div>
@@ -99,6 +101,7 @@ const About = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

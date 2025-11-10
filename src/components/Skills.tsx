@@ -94,7 +94,7 @@ const Skills = () => {
               Area of Intrest to learn
             </p>
             <div className="flex flex-wrap justify-center gap-3">
-              {['TypeScript', 'MongoDB',].map((tech, index) => (
+              {['TypeScript', 'MongoDB','Springboot','Hibernate','Angular'].map((tech, index) => (
                 <span
                   key={index}
                   className="px-4 py-2 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 text-cyan-400 rounded-lg text-sm border border-cyan-500/30 font-medium hover:scale-110 hover:border-cyan-500 transition-all duration-300"
