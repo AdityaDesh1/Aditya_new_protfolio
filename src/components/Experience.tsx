@@ -98,8 +98,8 @@ const Experience = () => {
                 <Briefcase className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-white mb-2">Program Co-ordinator - Technical</h3>
-                <p className="text-green-400 font-semibold mb-1">MindMatrix.ed</p>
+                <h3 className="text-2xl font-bold text-white mb-2">Technical Program Co-ordinator</h3>
+                <p className="text-green-400 font-semibold mb-1">CLI Infotech Pvt.Ltd.(MindMatrix)</p>
                 <div className="flex items-center gap-2 text-gray-400">
                   <Calendar className="w-4 h-4" />
                   <span>July 2025 – Present</span>
