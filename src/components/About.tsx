@@ -23,7 +23,7 @@ const About = () => {
     {
       icon: Briefcase,
       label: 'Current Role',
-      value: 'Technical Program Co-ordinator',
+      value: 'Full Stack Engineer',
       color: 'from-green-500 to-emerald-500',
     },
     {
