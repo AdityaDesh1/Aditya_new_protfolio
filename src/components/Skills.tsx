@@ -10,25 +10,25 @@ const Skills = () => {
       title: 'Frontend',
       icon: Code2,
       color: 'from-cyan-500 to-blue-500',
-      skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Bootstrap', 'Tailwind CSS'],
+      skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Bootstrap', 'Tailwind CSS', 'Next.js', 'TypeScript'],
     },
     {
       title: 'Backend',
       icon: Server,
       color: 'from-green-500 to-emerald-500',
-      skills: ['Node.js', 'Express.js', 'Core-Java'],
+      skills: ['Node.js', 'Express.js', 'Core-Java', 'PHP', 'Drupal', 'Strapi'],
     },
     {
       title: 'Database',
       icon: Database,
       color: 'from-orange-500 to-red-500',
-      skills: ['MySQL'],
+      skills: ['MySQL','PostgreSQL'],
     },
     {
       title: 'Tools',
       icon: Wrench,
       color: 'from-purple-500 to-pink-500',
-      skills: ['Git', 'VS Code', 'Postman','GitHub'],
+      skills: ['Git', 'VS Code', 'Postman','GitHub', 'Docker'],
     },
   ];
 
@@ -94,7 +94,7 @@ const Skills = () => {
               Area of Intrest to learn
             </p>
             <div className="flex flex-wrap justify-center gap-3">
-              {['TypeScript', 'MongoDB','Springboot','Hibernate','Angular'].map((tech, index) => (
+              {['MongoDB','Springboot','Hibernate','Angular'].map((tech, index) => (
                 <span
                   key={index}
                   className="px-4 py-2 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 text-cyan-400 rounded-lg text-sm border border-cyan-500/30 font-medium hover:scale-110 hover:border-cyan-500 transition-all duration-300"

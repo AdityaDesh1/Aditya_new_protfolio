@@ -21,6 +21,15 @@ const Experience = () => {
     'Collaborated with content and design teams to ensure consistent layout, colour schemes and component behaviour across the plaform.',
     'Collaborated with cross-functional teams following agile practices including sprint planning, daily stand-up’s, and code reviews.',
   ];
+  const thirdResponsibilities = [
+    'Developed and maintained patient-facing and doctor-facing applications for the LinQMD healthcare platform using Next.js, TypeScript, and Tailwind CSS, delivering responsive and performant frontend experiences across desktop and mobile.',
+    'Built and enhanced an analytical dashboard to visualize key healthcare metrics, enabling data-driven decision-making for internal stakeholders through real-time data rendering and dynamic UI.',
+    'Developed and customized CMS-driven features using Drupal (PHP, Twig, AJAX) and Strapi, supporting dynamic content management for clinic galleries, doctor profiles, and filtered data views.',
+    'Translated Figma designs into reusable, pixel-perfect UI components ensuring design consistency and seamless user experience across the platform.',
+    'Integrated REST APIs to power dynamic features including doctor profiles, clinic listings, and appointment flows, while handling real-time UI inconsistencies across local and demo environments.',
+    'Implemented SEO-friendly structures, resolved 404 edge cases, and optimized URL handling to improve search visibility, performance, and overall user experience.',
+    'Collaborated with cross-functional teams in an agile environment, contributing to sprint planning, code reviews, feature branching, PRs, and environment-based deployments.',
+  ];
 
   const achievements = [
     {
@@ -120,8 +129,36 @@ const Experience = () => {
 
           {/* --------- Second Company --------- */}
           <div
-            className={`bg-gray-900 rounded-xl p-8 border border-gray-700 hover:border-green-500 transition-all duration-500 h-full transform hover:-translate-y-2 hover:shadow-xl hover:shadow-green-500/20 ${cardsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
-              }`}
+            className={`bg-gray-900 rounded-xl p-8 border border-gray-700 hover:border-cyan-500 transition-all duration-500 h-full transform hover:-translate-y-2 hover:shadow-xl hover:shadow-cyan-500/20 ${cardsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}
+            style={{ transitionDelay: '200ms' }}
+          >
+            <div className="flex items-start gap-4 mb-6">
+              <div className="p-3 bg-gradient-to-r from-cyan-600 to-cyan-400 rounded-lg opacity-70">
+                <Briefcase className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-gray-400 mb-2">Technical Program Co-ordinator</h3>
+                <p className="text-cyan-500 font-semibold mb-1 opacity-80">CL Infotech Pvt.Ltd.(MindMatrix)</p>
+                <div className="flex items-center gap-2 text-gray-500">
+                  <Calendar className="w-4 h-4" />
+                  <span>July 2025 – November 2025</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              {secondResponsibilities.map((item, index) => (
+                <div key={index} className="flex items-start gap-3 group">
+                  <CheckCircle2 className="w-5 h-5 text-cyan-500 opacity-60 mt-0.5 flex-shrink-0" />
+                  <p className="text-gray-500 leading-relaxed">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* --------- Third Company --------- */}
+          <div
+            className={`bg-gray-900 rounded-xl p-8 border border-gray-700 hover:border-green-500 transition-all duration-500 h-full transform hover:-translate-y-2 hover:shadow-xl hover:shadow-green-500/20 ${cardsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}
             style={{ transitionDelay: '200ms' }}
           >
             <div className="flex items-start gap-4 mb-6">
@@ -129,17 +166,17 @@ const Experience = () => {
                 <Briefcase className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-white mb-2">Technical Program Co-ordinator</h3>
-                <p className="text-green-400 font-semibold mb-1">CLI Infotech Pvt.Ltd.(MindMatrix)</p>
+                <h3 className="text-2xl font-bold text-white mb-2">Full Stack Engineer</h3>
+                <p className="text-green-400 font-semibold mb-1">Aadya Health Science Pvt.Ltd.(LinQMD)</p>
                 <div className="flex items-center gap-2 text-gray-400">
                   <Calendar className="w-4 h-4" />
-                  <span>July 2025 – Present</span>
+                  <span>December 2025 – Present</span>
                 </div>
               </div>
             </div>
 
             <div className="space-y-3">
-              {secondResponsibilities.map((item, index) => (
+              {thirdResponsibilities.map((item, index) => (
                 <div key={index} className="flex items-start gap-3 group">
                   <CheckCircle2 className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
                   <p className="text-gray-300 leading-relaxed">{item}</p>
