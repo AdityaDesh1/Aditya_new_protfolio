@@ -7,13 +7,15 @@ import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import SplashCursor from './components/Animations/SplashCursor'
+import HeroSection from './components/HeroSection';
 
 function App() {
   return (
     <div className="min-h-screen bg-gray-900">
       <SplashCursor/>
-      <Navbar />
-      <Hero />
+      {/* <Navbar /> */}
+      {/* <Hero /> */}
+      <HeroSection />
       <About />
       <Skills />
       <Projects />

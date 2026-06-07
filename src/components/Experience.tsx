@@ -1,291 +1,354 @@
-import { Briefcase, Calendar, CheckCircle2, GraduationCap, Award } from 'lucide-react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useRef, useEffect, useState } from 'react';
 
-const Experience = () => {
-  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
-  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation();
-  const { ref: achievementsRef, isVisible: achievementsVisible } = useScrollAnimation();
+// ── tiny scroll-animation hook (inline so no extra file needed) ──
+function useReveal(threshold = 0.15) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } },
+      { threshold }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [threshold]);
+  return { ref, visible };
+}
 
-  const responsibilities = [
-    'Developed front-end school management and HR dashboards using React.js.',
-    'Built reusable and maintainable React components to improve scalability.',
-    'Implemented responsive layouts optimized for mobile and tablet devices.',
-    'Enhanced web performance by minimizing CSS/JS and compressing assets.',
-    'Improved UI consistency, accessibility, and responsiveness across the School Website.',
-  ];
+// ── data ──
+const experiences = [
+  {
+    role: 'Web Developer Intern',
+    company: 'Magnum Technologies Services',
+    period: 'Dec 2024 – May 2025',
+    accent: '#1a56ff',
+    status: 'past',
+    points: [
+      'Developed front-end school management and HR dashboards using React.js.',
+      'Built reusable and maintainable React components to improve scalability.',
+      'Implemented responsive layouts optimised for mobile and tablet devices.',
+      'Enhanced web performance by minimising CSS/JS and compressing assets.',
+      'Improved UI consistency, accessibility, and responsiveness across the School Website.',
+    ],
+  },
+  {
+    role: 'Technical Program Co-ordinator',
+    company: 'CL Infotech Pvt. Ltd. (MindMatrix)',
+    period: 'Jul 2025 – Nov 2025',
+    accent: '#0ea5e9',
+    status: 'past',
+    points: [
+      'Worked on web applications using React.js, HTML, CSS, and JavaScript.',
+      'Created and managed content through Strapi CMS, integrating with frontend components.',
+      'Contributed to project coordination — documentation, feature tracking, and updates.',
+      'Collaborated with content and design teams for layout consistency across the platform.',
+      'Followed agile practices including sprint planning, daily stand-ups, and code reviews.',
+    ],
+  },
+  {
+    role: 'Full Stack Engineer',
+    company: 'Aadya Health Science Pvt. Ltd. (LinQMD)',
+    period: 'Dec 2025 – Present',
+    accent: '#10b981',
+    status: 'current',
+    points: [
+      'Built patient-facing and doctor-facing apps for LinQMD using Next.js, TypeScript, and Tailwind CSS.',
+      'Built an analytics dashboard to visualise key healthcare metrics with real-time data rendering.',
+      'Developed CMS-driven features via Drupal (PHP, Twig, AJAX) and Strapi.',
+      'Translated Figma designs into pixel-perfect reusable UI components.',
+      'Integrated REST APIs for doctor profiles, clinic listings, and appointment flows.',
+      'Implemented SEO-friendly structures and resolved 404 edge cases.',
+      'Contributed to sprint planning, code reviews, feature branching, PRs, and deployments.',
+    ],
+  },
+];
 
-  const secondResponsibilities = [
-    'Worked on the development of web applications using React.js, HTML, CSS and JavaScript.',
-    'Created and managed content through STRAPI CMS, integrating seamlessly with frontend component.',
-    'Contributed to project co-ordination by handling documentation, feature tracking, and development updates.',
-    'Collaborated with content and design teams to ensure consistent layout, colour schemes and component behaviour across the plaform.',
-    'Collaborated with cross-functional teams following agile practices including sprint planning, daily stand-up’s, and code reviews.',
-  ];
-  const thirdResponsibilities = [
-    'Developed and maintained patient-facing and doctor-facing applications for the LinQMD healthcare platform using Next.js, TypeScript, and Tailwind CSS, delivering responsive and performant frontend experiences across desktop and mobile.',
-    'Built and enhanced an analytical dashboard to visualize key healthcare metrics, enabling data-driven decision-making for internal stakeholders through real-time data rendering and dynamic UI.',
-    'Developed and customized CMS-driven features using Drupal (PHP, Twig, AJAX) and Strapi, supporting dynamic content management for clinic galleries, doctor profiles, and filtered data views.',
-    'Translated Figma designs into reusable, pixel-perfect UI components ensuring design consistency and seamless user experience across the platform.',
-    'Integrated REST APIs to power dynamic features including doctor profiles, clinic listings, and appointment flows, while handling real-time UI inconsistencies across local and demo environments.',
-    'Implemented SEO-friendly structures, resolved 404 edge cases, and optimized URL handling to improve search visibility, performance, and overall user experience.',
-    'Collaborated with cross-functional teams in an agile environment, contributing to sprint planning, code reviews, feature branching, PRs, and environment-based deployments.',
-  ];
+const certifications = [
+  {
+    title: 'React.js Developer Certificate',
+    issuer: 'LearnTube.ai',
+    date: 'July 2025',
+  },
+  {
+    title: 'Java Full Stack Developer',
+    issuer: 'JSpiders Training & Development Center',
+    date: '2023',
+  },
+];
 
-  const achievements = [
-    {
-      title: 'React.js Developer Certificate',
-      description: 'Earned from LearnTube.ai (July 2025).',
-      icon: Award,
-    },
-    {
-      title: 'Java Full Stack Developer',
-      description: 'Completed Full Stack Java Developer course at JSpiders Training & Development Center — covered Core Java, SQL, HTML, CSS, and JavaScript.',
-      icon: Award,
-    },
-  ];
+const education = [
+  { degree: 'Master of Computer Applications', institution: 'Visvesvaraya Technological University, Belagavi', year: '2023' },
+  { degree: 'Bachelor of Computer Applications', institution: 'Bapuji Institute of Hi-Tech Education', year: '2021' },
+  { degree: 'Intermediate (PUC)', institution: 'Sir M.V PU College', year: '2017' },
+  { degree: 'Higher Primary School', institution: 'D.R.R School', year: '2015' },
+];
 
-  const education = [
-    {
-      degree: 'Master of Computer Applications',
-      college: 'Visvesvaraya Technological University, Belagavi',
-      year: 'Graduated 2023',
-      icon: GraduationCap,
-      // description:
-      //   'Specialized in Web Development, Database Management, and Software Engineering. Completed major full-stack projects using modern technologies.',
-    },
-    {
-      degree: 'Bachelor of Computer Applications',
-      college: 'Bapuji Institute of Hi-Tech Education',
-      year: 'Graduated 2021',
-      icon: GraduationCap,
-      // description:
-      //   'Built a strong foundation in programming, database systems, and web development. Completed mini projects and participated in coding competitions.',
-    },
-    {
-      degree: 'Intermediate',
-      college: 'Sir M.V Pu College',
-      year: 'Graduated 2017',
-      icon: GraduationCap,
-    },
-    {
-      degree: 'Higher Primary School',
-      college: 'D.R.R School',
-      year: 'Graduated 2015',
-      icon: GraduationCap,
-    },
-  ];
-
+// ── component ──
+export default function Experience() {
+  const heading = useReveal();
+  const expSection = useReveal(0.1);
+  const certSection = useReveal(0.1);
+  const eduSection = useReveal(0.1);
 
   return (
-    <section id="experience" className="py-20 bg-gray-800 relative overflow-hidden">
-      <div className="absolute top-10 left-0 w-72 h-72 bg-green-500/10 rounded-full blur-3xl animate-float"></div>
-      <div className="absolute bottom-10 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-float-delayed"></div>
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap');
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        .exp-root {
+          background: #f9f7f4;
+          font-family: 'DM Sans', system-ui, sans-serif;
+          color: #0f0f0f;
+          padding: 100px 0 120px;
+          position: relative;
+          overflow: hidden;
+        }
+        .exp-root::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background-image:
+            linear-gradient(rgba(15,15,15,0.07) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(15,15,15,0.07) 1px, transparent 1px);
+          background-size: 60px 60px;
+          pointer-events: none;
+        }
 
-        {/* ---------- Section Title ---------- */}
-        <div
-          ref={titleRef}
-          className={`text-center mb-16 transition-all duration-1000 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Experience & <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Achievements</span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto rounded-full"></div>
-        </div>
+        .exp-container { max-width: 1100px; margin: 0 auto; padding: 0 40px; position: relative; }
 
-        {/* ---------- Experience Cards ---------- */}
-        <div ref={cardsRef} className="grid lg:grid-cols-2 gap-8 mb-16">
+        /* ── section heading ── */
+        .exp-heading {
+          margin-bottom: 72px;
+          opacity: 0; transform: translateY(24px);
+          transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .exp-heading.visible { opacity: 1; transform: translateY(0); }
+        .exp-eyebrow {
+          font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+          color: #8a8a8a; margin-bottom: 12px;
+        }
+        .exp-title {
+          font-family: 'DM Serif Display', Georgia, serif;
+          font-size: clamp(36px, 5vw, 60px);
+          line-height: 1.05; letter-spacing: -0.025em; color: #0f0f0f;
+        }
+        .exp-title em { font-style: italic; color: #1a56ff; }
+        .exp-rule { width: 48px; height: 2px; background: #1a56ff; margin-top: 20px; }
 
-          {/* --------- First Company --------- */}
-          <div
-            className={`bg-gray-900 rounded-xl p-8 border border-gray-700 hover:border-cyan-500 transition-all duration-500 h-full transform hover:-translate-y-2 hover:shadow-xl hover:shadow-cyan-500/20 ${cardsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
-              }`}
-          >
-            <div className="flex items-start gap-4 mb-6">
-              <div className="p-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg">
-                <Briefcase className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-2">Web Developer Intern</h3>
-                <p className="text-cyan-400 font-semibold mb-1">Magnum Technologies Services</p>
-                <div className="flex items-center gap-2 text-gray-400">
-                  <Calendar className="w-4 h-4" />
-                  <span>December 2024 – May 2025</span>
-                </div>
-              </div>
-            </div>
+        /* ── experience cards ── */
+        .exp-cards {
+          display: flex; flex-direction: column; gap: 32px; margin-bottom: 80px;
+          opacity: 0; transform: translateY(32px);
+          transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .exp-cards.visible { opacity: 1; transform: translateY(0); }
 
-            <div className="space-y-3">
-              {responsibilities.map((item, index) => (
-                <div key={index} className="flex items-start gap-3 group">
-                  <CheckCircle2 className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" />
-                  <p className="text-gray-300 leading-relaxed">{item}</p>
-                </div>
-              ))}
-            </div>
+        .exp-card {
+          background: #fff;
+          border: 1px solid rgba(15,15,15,0.09);
+          border-radius: 16px;
+          padding: 36px 40px;
+          display: grid;
+          grid-template-columns: 220px 1fr;
+          gap: 40px;
+          transition: box-shadow 0.25s, transform 0.25s;
+          position: relative;
+          overflow: hidden;
+        }
+        .exp-card::before {
+          content: '';
+          position: absolute;
+          left: 0; top: 0; bottom: 0;
+          width: 3px;
+          background: var(--card-accent, #1a56ff);
+          border-radius: 3px 0 0 3px;
+        }
+        .exp-card:hover { box-shadow: 0 12px 40px rgba(15,15,15,0.08); transform: translateY(-2px); }
+
+        .exp-card-left {}
+        .exp-role {
+          font-family: 'DM Serif Display', Georgia, serif;
+          font-size: 20px; color: #0f0f0f; line-height: 1.2;
+          letter-spacing: -0.01em; margin-bottom: 6px;
+        }
+        .exp-company { font-size: 13px; font-weight: 500; color: var(--card-accent, #1a56ff); margin-bottom: 10px; }
+        .exp-period {
+          font-size: 12px; color: #8a8a8a; letter-spacing: 0.02em;
+          display: flex; align-items: center; gap: 6px;
+        }
+        .exp-status-dot {
+          width: 6px; height: 6px; border-radius: 50%;
+          background: var(--card-accent, #1a56ff);
+          flex-shrink: 0;
+        }
+        .exp-status-dot.pulse { animation: dotpulse 2s infinite; }
+        @keyframes dotpulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
+        .exp-card-right {}
+        .exp-points { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+        .exp-point {
+          font-size: 14px; line-height: 1.7; color: #555;
+          display: flex; gap: 10px; align-items: flex-start;
+        }
+        .exp-point::before {
+          content: '—';
+          color: var(--card-accent, #1a56ff);
+          flex-shrink: 0;
+          font-size: 12px;
+          margin-top: 3px;
+          opacity: 0.7;
+        }
+
+        /* ── certs ── */
+        .cert-section {
+          margin-bottom: 80px;
+          opacity: 0; transform: translateY(32px);
+          transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .cert-section.visible { opacity: 1; transform: translateY(0); }
+        .sub-heading {
+          font-family: 'DM Serif Display', Georgia, serif;
+          font-size: clamp(26px, 3.5vw, 40px);
+          letter-spacing: -0.02em; color: #0f0f0f;
+          margin-bottom: 32px;
+        }
+        .sub-heading em { font-style: italic; color: #1a56ff; }
+        .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .cert-card {
+          background: #fff;
+          border: 1px solid rgba(15,15,15,0.09);
+          border-radius: 14px;
+          padding: 28px 32px;
+          transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .cert-card:hover { box-shadow: 0 8px 28px rgba(26,86,255,0.1); transform: translateY(-2px); }
+        .cert-icon {
+          width: 40px; height: 40px; border-radius: 10px;
+          background: #e8edff;
+          display: flex; align-items: center; justify-content: center;
+          margin-bottom: 16px;
+        }
+        .cert-icon svg { width: 18px; height: 18px; stroke: #1a56ff; fill: none; stroke-width: 2; }
+        .cert-title { font-size: 15px; font-weight: 500; color: #0f0f0f; margin-bottom: 6px; }
+        .cert-meta { font-size: 12px; color: #8a8a8a; }
+        .cert-meta strong { color: #555; font-weight: 500; }
+
+        /* ── education timeline ── */
+        .edu-section {
+          opacity: 0; transform: translateY(32px);
+          transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .edu-section.visible { opacity: 1; transform: translateY(0); }
+        .edu-timeline { position: relative; padding-left: 28px; margin-top: 32px; }
+        .edu-timeline::before {
+          content: '';
+          position: absolute; left: 0; top: 6px; bottom: 6px;
+          width: 1px; background: rgba(15,15,15,0.12);
+        }
+        .edu-item {
+          position: relative; padding: 0 0 36px 28px;
+        }
+        .edu-item:last-child { padding-bottom: 0; }
+        .edu-item::before {
+          content: '';
+          position: absolute; left: -4px; top: 6px;
+          width: 9px; height: 9px; border-radius: 50%;
+          background: #fff; border: 2px solid #1a56ff;
+        }
+        .edu-year {
+          font-size: 11px; font-weight: 500; color: #1a56ff;
+          letter-spacing: 0.06em; text-transform: uppercase;
+          margin-bottom: 4px;
+        }
+        .edu-degree {
+          font-family: 'DM Serif Display', Georgia, serif;
+          font-size: 18px; color: #0f0f0f; margin-bottom: 4px;
+          letter-spacing: -0.01em;
+        }
+        .edu-institution { font-size: 13px; color: #8a8a8a; }
+
+        @media (max-width: 720px) {
+          .exp-container { padding: 0 20px; }
+          .exp-card { grid-template-columns: 1fr; gap: 20px; padding: 24px; }
+          .exp-card::before { top: 0; left: 0; right: 0; bottom: auto; width: auto; height: 3px; border-radius: 3px 3px 0 0; }
+        }
+      `}</style>
+
+      <section id="experience" className="exp-root">
+        <div className="exp-container">
+
+          {/* Heading */}
+          <div ref={heading.ref} className={`exp-heading ${heading.visible ? 'visible' : ''}`}>
+            <p className="exp-eyebrow">Career</p>
+            <h2 className="exp-title">Experience &amp; <em>Journey</em></h2>
+            <div className="exp-rule" />
           </div>
 
-          {/* --------- Second Company --------- */}
-          <div
-            className={`bg-gray-900 rounded-xl p-8 border border-gray-700 hover:border-cyan-500 transition-all duration-500 h-full transform hover:-translate-y-2 hover:shadow-xl hover:shadow-cyan-500/20 ${cardsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}
-            style={{ transitionDelay: '200ms' }}
-          >
-            <div className="flex items-start gap-4 mb-6">
-              <div className="p-3 bg-gradient-to-r from-cyan-600 to-cyan-400 rounded-lg opacity-70">
-                <Briefcase className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-gray-400 mb-2">Technical Program Co-ordinator</h3>
-                <p className="text-cyan-500 font-semibold mb-1 opacity-80">CL Infotech Pvt.Ltd.(MindMatrix)</p>
-                <div className="flex items-center gap-2 text-gray-500">
-                  <Calendar className="w-4 h-4" />
-                  <span>July 2025 – November 2025</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-3">
-              {secondResponsibilities.map((item, index) => (
-                <div key={index} className="flex items-start gap-3 group">
-                  <CheckCircle2 className="w-5 h-5 text-cyan-500 opacity-60 mt-0.5 flex-shrink-0" />
-                  <p className="text-gray-500 leading-relaxed">{item}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* --------- Third Company --------- */}
-          <div
-            className={`bg-gray-900 rounded-xl p-8 border border-gray-700 hover:border-green-500 transition-all duration-500 h-full transform hover:-translate-y-2 hover:shadow-xl hover:shadow-green-500/20 ${cardsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}
-            style={{ transitionDelay: '200ms' }}
-          >
-            <div className="flex items-start gap-4 mb-6">
-              <div className="p-3 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg">
-                <Briefcase className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-2">Full Stack Engineer</h3>
-                <p className="text-green-400 font-semibold mb-1">Aadya Health Science Pvt.Ltd.(LinQMD)</p>
-                <div className="flex items-center gap-2 text-gray-400">
-                  <Calendar className="w-4 h-4" />
-                  <span>December 2025 – Present</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-3">
-              {thirdResponsibilities.map((item, index) => (
-                <div key={index} className="flex items-start gap-3 group">
-                  <CheckCircle2 className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                  <p className="text-gray-300 leading-relaxed">{item}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* ---------- Achievements Section ---------- */}
-        <div ref={achievementsRef}>
-          <h3
-            className={`text-3xl font-bold text-white mb-8 text-center transition-all duration-1000 ${achievementsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-          >
-            Certifications & <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Achievements</span>
-          </h3>
-
-          <div className="grid md:grid-cols-2 gap-6 mb-16">
-            {achievements.map((achievement, index) => {
-              const Icon = achievement.icon;
-              return (
-                <div
-                  key={index}
-                  className={`group bg-gray-900 rounded-xl p-6 border border-gray-700 hover:border-cyan-500 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl hover:shadow-cyan-500/20 hover:rotate-2 ${achievementsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
-                    }`}
-                  style={{ transitionDelay: `${index * 150}ms` }}
-                >
-                  <div className="flex justify-center mb-4">
-                    <div className="p-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
-                      <Icon className="w-8 h-8 text-white" />
-                    </div>
+          {/* Experience Cards */}
+          <div ref={expSection.ref} className={`exp-cards ${expSection.visible ? 'visible' : ''}`}>
+            {experiences.map((exp, i) => (
+              <div
+                key={i}
+                className="exp-card"
+                style={{ '--card-accent': exp.accent, transitionDelay: `${i * 80}ms` } as React.CSSProperties}
+              >
+                <div className="exp-card-left">
+                  <div className="exp-role">{exp.role}</div>
+                  <div className="exp-company">{exp.company}</div>
+                  <div className="exp-period">
+                    <span className={`exp-status-dot ${exp.status === 'current' ? 'pulse' : ''}`} />
+                    {exp.period}
                   </div>
-                  <h4 className="text-xl font-bold text-white text-center mb-2 group-hover:text-cyan-400 transition-colors duration-300">
-                    {achievement.title}
-                  </h4>
-                  <p className="text-gray-400 text-center text-sm">
-                    {achievement.description}
-                  </p>
                 </div>
-              );
-            })}
+                <div className="exp-card-right">
+                  <ul className="exp-points">
+                    {exp.points.map((pt, j) => (
+                      <li key={j} className="exp-point">{pt}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
           </div>
-        </div>
 
-        {/* ---------- Education Details Section ---------- */}
-
-        {/* <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 text-center">
-            Education & <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Details</span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto rounded-full"></div> */}
-
-        {/* ---------- Education Details Section (Alternate Timeline) ---------- */}
-        <div
-          className={`mt-20 transition-all duration-700 ${achievementsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
-        >
-          <h3 className="text-5xl font-bold text-white mb-16 text-center">
-            Education{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
-              Details
-            </span>
-          </h3>
-
-          <div className="relative max-w-5xl mx-auto">
-            {/* Center Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-cyan-500 to-blue-500 rounded-full"></div>
-
-            <div className="space-y-20">
-              {education.map((edu, index) => {
-                const isLeft = index % 2 === 0;
-
-                return (
-                  <div
-                    key={index}
-                    className={`relative flex items-center ${isLeft ? "justify-start" : "justify-end"
-                      }`}
-                  >
-                    {/* Node Dot */}
-                    <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full shadow-lg shadow-cyan-500/40"></div>
-
-                    {/* Card */}
-                    <div
-                      className={`w-[45%] bg-gray-900 border border-gray-700 rounded-xl p-2 shadow-lg hover:shadow-cyan-500/20 transition-all duration-500 hover:-translate-y-1 ${isLeft ? "text-left" : "text-right"
-                        }`}
-                    >
-                      <h4 className="text-xl font-bold text-white">{edu.degree}</h4>
-                      <p className="text-gray-400 text-sm">{edu.college}</p>
-
-                      <div
-                        className={`flex items-center gap-2 text-gray-500 text-sm mt-1 ${isLeft ? "" : "flex-row-reverse"
-                          }`}
-                      >
-                        <Calendar className="w-4 h-4" />
-                        <span>{edu.year}</span>
-                      </div>
-                    </div>
+          {/* Certifications */}
+          <div ref={certSection.ref} className={`cert-section ${certSection.visible ? 'visible' : ''}`}>
+            <h3 className="sub-heading">Certifications &amp; <em>Achievements</em></h3>
+            <div className="cert-grid">
+              {certifications.map((cert, i) => (
+                <div key={i} className="cert-card" style={{ transitionDelay: `${i * 100}ms` }}>
+                  <div className="cert-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
                   </div>
-                );
-              })}
+                  <div className="cert-title">{cert.title}</div>
+                  <div className="cert-meta">
+                    <strong>{cert.issuer}</strong> · {cert.date}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
+
+          {/* Education */}
+          <div ref={eduSection.ref} className={`edu-section ${eduSection.visible ? 'visible' : ''}`}>
+            <h3 className="sub-heading">Education <em>Details</em></h3>
+            <div className="edu-timeline">
+              {education.map((edu, i) => (
+                <div key={i} className="edu-item" style={{ transitionDelay: `${i * 80}ms` }}>
+                  <div className="edu-year">{edu.year}</div>
+                  <div className="edu-degree">{edu.degree}</div>
+                  <div className="edu-institution">{edu.institution}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
-
-
-
-      </div>
-    </section>
+      </section>
+    </>
   );
-};
-
-export default Experience;
+}
